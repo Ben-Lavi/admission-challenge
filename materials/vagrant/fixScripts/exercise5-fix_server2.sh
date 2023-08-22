@@ -8,4 +8,5 @@ sudo sed -i 's/#   StrictHostKeyChecking ask/    StrictHostKeyChecking no/g' /et
 sudo -u vagrant ssh-keygen -q -t rsa -N '' -f /home/vagrant/.ssh/id_rsa
 sudo apt-get update
 sudo apt-get install sshpass
-sshpass -p vagrant ssh-copy-id -i /home/vagrant/.ssh/id_rsa.pub vagrant@192.168.60.10 -f 
+sshpass -p vagrant scp vagrant@192.168.60.10:/home/vagrant/.ssh/id_rsa.pub /home/vagrant/.ssh/
+sudo cat /home/vagrant/.ssh/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
